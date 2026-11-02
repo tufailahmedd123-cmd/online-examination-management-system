@@ -1,0 +1,6 @@
+{
+  "name": "Online Examination Management System",
+  "description": "Smart, Secure & Efficient Online Examination Platform featuring real-time exams, automated grading, question bank, student and admin dashboards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

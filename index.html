@@ -1,0 +1,1562 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Examination Management System | BSIT Project</title>
+  <meta name="description" content="Smart, Secure & Efficient Online Examination Platform featuring real-time exams, automated grading, question bank, student and admin dashboards." />
+  <meta property="og:title" content="Online Examination Management System" />
+  <meta property="og:description" content="Smart, Secure & Efficient Online Examination Platform featuring real-time exams, automated grading, question bank, student and admin dashboards." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Chart.js CDN for Admin Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Application Stylesheet -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- =====================================================================
+       MODULE 1: LANDING PAGE
+       ===================================================================== -->
+  <div id="landing-view" class="view-section active">
+    <!-- Navigation Bar -->
+    <header class="landing-nav">
+      <div class="landing-brand">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>OEMS</span>
+        <span class="sidebar-badge" style="margin-left: 6px;">PORTAL</span>
+      </div>
+
+      <nav class="landing-nav-links">
+        <a href="#landing-hero">Home</a>
+        <a href="#landing-features">Features</a>
+        <a href="#landing-exams">Exams</a>
+        <a href="#landing-benefits">Benefits</a>
+        <a href="#landing-about">About Project</a>
+      </nav>
+
+      <div class="landing-nav-actions">
+        <button class="btn btn-icon theme-toggle-btn" title="Toggle Theme">
+          <i class="fa-solid fa-moon theme-toggle-icon"></i>
+        </button>
+        <button class="btn btn-secondary btn-sm" onclick="openModal('login-modal')">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="openModal('register-modal')">
+          <i class="fa-solid fa-user-plus"></i> Register
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="landing-hero">
+      <div class="hero-pill">
+        <i class="fa-solid fa-shield-halved"></i> BSIT Web Technology Capstone Platform
+      </div>
+      <h1 class="hero-headline">
+        Examinations Made <span>Smarter, Simpler & Faster</span>
+      </h1>
+      <p class="hero-subtitle">
+        A state-of-the-art educational evaluation platform featuring live countdown timers, anti-cheat detection, instant automated grading, and comprehensive performance analytics.
+      </p>
+
+      <div class="hero-cta-group">
+        <button class="btn btn-primary btn-lg" onclick="openModal('login-modal')">
+          <i class="fa-solid fa-rocket"></i> Get Started
+        </button>
+        <a href="#landing-exams" class="btn btn-secondary btn-lg">
+          <i class="fa-solid fa-magnifying-glass"></i> Explore Examinations
+        </a>
+      </div>
+
+      <!-- Quick Demo Login Access Callout -->
+      <div class="hero-demo-callout">
+        <div class="demo-title">
+          <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--primary); margin-right: 6px;"></i>
+          <strong>One-Click University Demo Logins:</strong>
+          <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: normal; margin-top: 2px;">
+            Experience both student exam candidate and instructor administrative views.
+          </div>
+        </div>
+        <div class="demo-btns">
+          <button class="btn btn-primary btn-sm" onclick="handleLogin('admin@oems.com', 'admin123', true)">
+            <i class="fa-solid fa-user-gear"></i> Admin Demo
+          </button>
+          <button class="btn btn-secondary btn-sm" onclick="handleLogin('student@oems.com', 'student123', true)">
+            <i class="fa-solid fa-user-graduate"></i> Student Demo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>15,000+</h3>
+          <p>Exams Completed</p>
+        </div>
+        <div class="stat-item">
+          <h3>99.9%</h3>
+          <p>System Reliability</p>
+        </div>
+        <div class="stat-item">
+          <h3>35+</h3>
+          <p>Question Bank Banked</p>
+        </div>
+        <div class="stat-item">
+          <h3>100%</h3>
+          <p>Automated Instant Grading</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="landing-section" id="landing-features">
+      <div class="section-header">
+        <span class="section-tag">Powerful Capabilities</span>
+        <h2 class="section-title">Built for Precision, Security & Reliability</h2>
+        <p class="section-desc">Everything needed for university examinations, semester quizzes, and practical code skill assessments.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fa-solid fa-stopwatch"></i>
+          </div>
+          <h3>Dynamic Countdown Timer</h3>
+          <p>Automated countdown with visual warning triggers when 2 minutes remain. Automatically freezes and submits upon expiration.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: var(--success-light); color: var(--success);">
+            <i class="fa-solid fa-square-check"></i>
+          </div>
+          <h3>Interactive Question Palette</h3>
+          <p>Real-time visual indicators color-code every question: Current (Blue), Answered (Green), Marked for Review (Orange), and Unanswered (Gray).</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: var(--warning-light); color: var(--warning);">
+            <i class="fa-solid fa-shield-cat"></i>
+          </div>
+          <h3>Accidental Exit & Tab Monitor</h3>
+          <p>Includes window unload protection (`beforeunload`) and monitors tab-switching violations during candidate testing sessions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: var(--secondary-light); color: var(--secondary);">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <h3>Automated Grading Engine</h3>
+          <p>Calculates percentages, total scores, correct vs incorrect counts, academic letter grades, and generates immediate reviews with explanations.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: var(--danger-light); color: var(--danger);">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <h3>Comprehensive Question Bank</h3>
+          <p>Manage categorized questions across HTML5, CSS3, JavaScript ES6+, Computer Fundamentals, and Web Systems with full CRUD support.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: var(--info-light); color: var(--info);">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3>Role-Based Dashboards</h3>
+          <p>Tailored workflows for students taking exams and administrators reviewing analytics, managing rosters, and exporting reports.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Available Examinations Preview Section -->
+    <section class="landing-section" id="landing-exams" style="background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="section-header">
+        <span class="section-tag">Course Curriculum</span>
+        <h2 class="section-title">Available University Examinations</h2>
+        <p class="section-desc">Select an active subject module to test your technical competencies right away.</p>
+      </div>
+
+      <div class="public-exams-grid" id="landing-exams-container">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="landing-section" id="landing-benefits">
+      <div class="section-header">
+        <span class="section-tag">Targeted Benefits</span>
+        <h2 class="section-title">Designed for Students & Instructors Alike</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: var(--primary-light); color: var(--primary);">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <h3>For Students</h3>
+          <ul style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8; margin-top: 10px;">
+            <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 6px;"></i> Distraction-free full-screen testing interface</li>
+            <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 6px;"></i> Mark questions for review and jump back easily</li>
+            <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 6px;"></i> Instant automated score feedback & answer explanations</li>
+            <li><i class="fa-solid fa-check" style="color: var(--success); margin-right: 6px;"></i> Clear examination history and performance tracking</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: var(--secondary-light); color: var(--secondary);">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <h3>For Instructors & Faculty</h3>
+          <ul style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8; margin-top: 10px;">
+            <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 6px;"></i> Effortless exam creation with custom durations and pass marks</li>
+            <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 6px;"></i> Centralized Question Bank with 4-choice MCQ support</li>
+            <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 6px;"></i> High-level performance distributions and subject charts</li>
+            <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 6px;"></i> One-click CSV export of grade reports and student attempts</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer" id="landing-about">
+      <div class="footer-content">
+        <div>
+          <div class="landing-brand" style="margin-bottom: 8px;">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Online Examination Management System</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 440px;">
+            BSIT Web Technology Course Project. Engineered strictly with HTML5, CSS3, and Vanilla JavaScript with LocalStorage persistence.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 32px; font-size: 0.9rem;">
+          <div>
+            <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Quick Links</h4>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <a href="#" onclick="openModal('login-modal'); return false;">Student Portal</a>
+              <a href="#" onclick="openModal('login-modal'); return false;">Faculty Admin</a>
+              <a href="#landing-exams">Exams Catalog</a>
+            </div>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Academic Info</h4>
+            <div style="display: flex; flex-direction: column; gap: 6px; color: var(--text-secondary);">
+              <span>Course: Web Technology</span>
+              <span>Degree: BSIT</span>
+              <span>Year: 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Online Examination Management System (OEMS). Suitable for University Practical Evaluation.
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- =====================================================================
+       MODULE 2: STUDENT PORTAL (APP SHELL)
+       ===================================================================== -->
+  <div id="student-portal" class="app-container view-section">
+    <!-- Student Sidebar -->
+    <aside class="sidebar" id="student-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>OEMS</span>
+          <span class="sidebar-badge">STUDENT</span>
+        </div>
+      </div>
+
+      <div class="sidebar-menu">
+        <span class="nav-category">Main Menu</span>
+        <div class="nav-item active" data-view="dashboard">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashboard</span>
+        </div>
+        <div class="nav-item" data-view="exams">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Available Exams</span>
+        </div>
+        <div class="nav-item" data-view="history">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>My Exams</span>
+        </div>
+        <div class="nav-item" data-view="results">
+          <i class="fa-solid fa-square-poll-vertical"></i>
+          <span>Results & Grades</span>
+        </div>
+
+        <span class="nav-category" style="margin-top: 14px;">User Account</span>
+        <div class="nav-item" data-view="profile">
+          <i class="fa-solid fa-user-pen"></i>
+          <span>Student Profile</span>
+        </div>
+        <div class="nav-item" data-view="settings">
+          <i class="fa-solid fa-sliders"></i>
+          <span>Settings</span>
+        </div>
+        <div class="nav-item" data-view="logout" style="color: var(--danger);">
+          <i class="fa-solid fa-arrow-right-from-bracket" style="color: var(--danger);"></i>
+          <span>Logout</span>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-mini-card">
+          <img src="" alt="Avatar" class="user-mini-avatar current-user-avatar" />
+          <div class="user-mini-info">
+            <div class="user-mini-name current-user-name">Alex Rivera</div>
+            <div class="user-mini-role current-user-role">BSIT-2024-108</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Student Main Content Area -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="btn btn-icon sidebar-toggle-btn" title="Toggle Sidebar">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-title-wrapper">
+            <h2 id="student-current-page-title">Student Academic Dashboard</h2>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn btn-icon theme-toggle-btn" title="Toggle Theme">
+            <i class="fa-solid fa-moon theme-toggle-icon"></i>
+          </button>
+          <button class="btn btn-icon" onclick="openModal('notifications-modal')" title="Notifications">
+            <i class="fa-regular fa-bell"></i>
+          </button>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="" class="user-mini-avatar current-user-avatar" style="width: 34px; height: 34px;" />
+            <span class="current-user-name" style="font-weight: 600; font-size: 0.9rem;">Alex Rivera</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Student Subview 1: Dashboard -->
+      <div id="student-dashboard-view" class="page-container view-section active">
+        <!-- Welcome Card -->
+        <div class="card" style="background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(79,70,229,0.08) 100%); border-color: rgba(37,99,235,0.2);">
+          <div class="card-body" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h2 id="student-welcome-title" style="font-size: 1.6rem; margin-bottom: 6px;">Welcome back, Alex Rivera!</h2>
+              <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                Department of Information Technology &bull; Current Academic Term
+              </p>
+            </div>
+            <button class="btn btn-primary" onclick="showStudentSubView('exams')">
+              <i class="fa-solid fa-play"></i> Take Available Exam
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats Cards Row -->
+        <div class="stats-cards-row">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Available Exams</h4>
+              <div class="stat-value" id="student-stat-available">5</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Completed Exams</h4>
+              <div class="stat-value" id="student-stat-completed">1</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon amber">
+              <i class="fa-solid fa-calendar-day"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Upcoming Exams</h4>
+              <div class="stat-value" id="student-stat-upcoming">0</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon indigo">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Average Score</h4>
+              <div class="stat-value" id="student-stat-avg-score">85.7%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Available Exams Quick Launch Preview -->
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-bolt" style="color: var(--primary); margin-right: 8px;"></i> Recommended Examinations</h3>
+            <button class="btn btn-sm btn-outline-primary" onclick="showStudentSubView('exams')">
+              View All <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="public-exams-grid" id="student-available-exams-preview">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Results Table Preview -->
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-clock-rotate-left" style="color: var(--secondary); margin-right: 8px;"></i> Recent Examination Results</h3>
+            <button class="btn btn-sm btn-secondary" onclick="showStudentSubView('history')">
+              All Results
+            </button>
+          </div>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Exam Title</th>
+                  <th>Subject</th>
+                  <th>Marks</th>
+                  <th>Percentage</th>
+                  <th>Result</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="student-recent-results-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Subview 2: Available Exams -->
+      <div id="student-exams-view" class="page-container view-section">
+        <div class="card">
+          <div class="card-header">
+            <h3>Available Examinations</h3>
+          </div>
+          <div class="card-body">
+            <div class="filter-bar">
+              <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="student-exam-search" class="form-control" placeholder="Search by exam title or code..." oninput="renderStudentAvailableExams()" />
+              </div>
+              <div class="filter-controls">
+                <select id="student-exam-subject-filter" class="form-control" onchange="renderStudentAvailableExams()" style="width: 180px;">
+                  <option value="all">All Subjects</option>
+                  <option value="HTML">HTML</option>
+                  <option value="CSS">CSS</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="Computer Fundamentals">Computer Fundamentals</option>
+                  <option value="Web Technology">Web Technology</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="public-exams-grid" id="student-all-exams-container">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Subview 3 & 4: My Exams / Results History -->
+      <div id="student-history-view" class="page-container view-section">
+        <div class="card">
+          <div class="card-header">
+            <h3>Examination History & Scores</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Exam Title</th>
+                  <th>Subject</th>
+                  <th>Completed On</th>
+                  <th>Time Taken</th>
+                  <th>Marks Obtained</th>
+                  <th>Status</th>
+                  <th>Review</th>
+                </tr>
+              </thead>
+              <tbody id="student-history-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="student-results-view" class="page-container view-section">
+        <!-- Rendered with same handler as history -->
+      </div>
+
+      <!-- Student Subview 5: Profile -->
+      <div id="student-profile-view" class="page-container view-section">
+        <div class="card" style="max-width: 720px; margin: 0 auto;">
+          <div class="card-header">
+            <h3>Student Academic Profile</h3>
+          </div>
+          <div class="card-body">
+            <form id="profile-form">
+              <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 24px;">
+                <img id="profile-avatar-preview" src="" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);" />
+                <div>
+                  <h4 style="margin-bottom: 4px;">Profile Photo</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Update your profile avatar URL</p>
+                  <input type="url" id="profile-avatar-url-input" class="form-control" placeholder="https://images.unsplash.com/..." style="font-size: 0.85rem;" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="profile-name-input" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address (Registered)</label>
+                <input type="email" id="profile-email-input" class="form-control" readonly disabled style="opacity: 0.7;" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Student ID Number</label>
+                <input type="text" id="profile-student-id-input" class="form-control" readonly disabled style="opacity: 0.7;" />
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label class="form-label">Department</label>
+                  <input type="text" id="profile-department-input" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Academic Semester</label>
+                  <input type="text" id="profile-semester-input" class="form-control" required />
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+                <i class="fa-solid fa-floppy-disk"></i> Save Profile Details
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Subview 6: Settings -->
+      <div id="student-settings-view" class="page-container view-section">
+        <div class="card" style="max-width: 680px; margin: 0 auto;">
+          <div class="card-header">
+            <h3>Application Settings</h3>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border-color);">
+              <div>
+                <strong>Theme Display Mode</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Switch between daylight and dark contrast theme</p>
+              </div>
+              <button class="btn btn-secondary theme-toggle-btn">
+                <i class="fa-solid fa-moon theme-toggle-icon"></i> Toggle Theme
+              </button>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0;">
+              <div>
+                <strong style="color: var(--danger);">Reset Demo Data</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Reset local storage to original sample examinations, questions, and students</p>
+              </div>
+              <button class="btn btn-outline-danger btn-reset-demo-data">
+                <i class="fa-solid fa-arrows-rotate"></i> Factory Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =====================================================================
+       MODULE 3: ADMIN PORTAL (FACULTY / EXAMINER SHELL)
+       ===================================================================== -->
+  <div id="admin-portal" class="app-container view-section">
+    <!-- Admin Sidebar -->
+    <aside class="sidebar" id="admin-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <i class="fa-solid fa-user-shield"></i>
+          <span>OEMS</span>
+          <span class="sidebar-badge" style="background: var(--secondary-light); color: var(--secondary);">FACULTY</span>
+        </div>
+      </div>
+
+      <div class="sidebar-menu">
+        <span class="nav-category">Administration</span>
+        <div class="nav-item active" data-view="dashboard">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Overview</span>
+        </div>
+        <div class="nav-item" data-view="exams">
+          <i class="fa-solid fa-file-signature"></i>
+          <span>Manage Exams</span>
+        </div>
+        <div class="nav-item" data-view="questions">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <span>Question Bank</span>
+        </div>
+        <div class="nav-item" data-view="students">
+          <i class="fa-solid fa-users"></i>
+          <span>Manage Students</span>
+        </div>
+        <div class="nav-item" data-view="results">
+          <i class="fa-solid fa-square-poll-horizontal"></i>
+          <span>All Results</span>
+        </div>
+        <div class="nav-item" data-view="reports">
+          <i class="fa-solid fa-file-excel"></i>
+          <span>Export Reports</span>
+        </div>
+
+        <span class="nav-category" style="margin-top: 14px;">System</span>
+        <div class="nav-item" data-view="settings">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </div>
+        <div class="nav-item" data-view="logout" style="color: var(--danger);">
+          <i class="fa-solid fa-arrow-right-from-bracket" style="color: var(--danger);"></i>
+          <span>Sign Out</span>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-mini-card">
+          <img src="" alt="Avatar" class="user-mini-avatar current-user-avatar" />
+          <div class="user-mini-info">
+            <div class="user-mini-name current-user-name">Dr. Robert Vance</div>
+            <div class="user-mini-role current-user-role">System Administrator</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Admin Main Content -->
+    <div class="main-content">
+      <header class="app-header">
+        <div class="header-left">
+          <button class="btn btn-icon sidebar-toggle-btn" title="Toggle Sidebar">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-title-wrapper">
+            <h2>Faculty Administration Console</h2>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn btn-icon theme-toggle-btn" title="Toggle Theme">
+            <i class="fa-solid fa-moon theme-toggle-icon"></i>
+          </button>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="" class="user-mini-avatar current-user-avatar" style="width: 34px; height: 34px;" />
+            <span class="current-user-name" style="font-weight: 600; font-size: 0.9rem;">Dr. Robert Vance</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Admin Subview 1: Dashboard -->
+      <div id="admin-dashboard-view" class="page-container view-section active">
+        <!-- Stats Row -->
+        <div class="stats-cards-row">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Registered Students</h4>
+              <div class="stat-value" id="admin-stat-students">2</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fa-solid fa-file-circle-check"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Published Exams</h4>
+              <div class="stat-value" id="admin-stat-exams">5</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon indigo">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Bank Questions</h4>
+              <div class="stat-value" id="admin-stat-questions">35</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon amber">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Total Attempts</h4>
+              <div class="stat-value" id="admin-stat-attempts">2</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fa-solid fa-percent"></i>
+            </div>
+            <div class="stat-details">
+              <h4>Pass Rate</h4>
+              <div class="stat-value" id="admin-stat-pass-rate">100%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px; margin-bottom: 28px;">
+          <div class="card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-chart-pie" style="color: var(--primary); margin-right: 8px;"></i> Overall Pass / Fail Ratio</h3>
+            </div>
+            <div class="card-body" style="height: 280px; position: relative;">
+              <canvas id="admin-performance-chart"></canvas>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-chart-simple" style="color: var(--secondary); margin-right: 8px;"></i> Attempts Per Subject Module</h3>
+            </div>
+            <div class="card-body" style="height: 280px; position: relative;">
+              <canvas id="admin-subjects-chart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Submissions Table -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Recent Student Exam Submissions</h3>
+            <button class="btn btn-sm btn-outline-primary" onclick="showAdminSubView('results')">View All</button>
+          </div>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Exam Title</th>
+                  <th>Subject</th>
+                  <th>Score</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="admin-recent-submissions-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Subview 2: Manage Exams -->
+      <div id="admin-exams-view" class="page-container view-section">
+        <div class="card">
+          <div class="card-header">
+            <h3>Examination Curriculum Management</h3>
+            <button class="btn btn-primary btn-sm" onclick="openCreateExamModal()">
+              <i class="fa-solid fa-plus"></i> Create New Exam
+            </button>
+          </div>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Exam ID</th>
+                  <th>Title</th>
+                  <th>Subject</th>
+                  <th>Duration</th>
+                  <th>Questions</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-exams-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Subview 3: Question Bank -->
+      <div id="admin-questions-view" class="page-container view-section">
+        <div class="card">
+          <div class="card-header">
+            <h3>Central Question Bank Repository</h3>
+            <button class="btn btn-primary btn-sm" onclick="openCreateQuestionModal()">
+              <i class="fa-solid fa-plus"></i> Add Question
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="filter-bar">
+              <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="admin-question-search" class="form-control" placeholder="Search question text..." oninput="renderAdminQuestionsTable()" />
+              </div>
+              <div class="filter-controls">
+                <select id="admin-question-subject-filter" class="form-control" onchange="renderAdminQuestionsTable()" style="width: 200px;">
+                  <option value="all">All Subjects</option>
+                  <option value="HTML">HTML</option>
+                  <option value="CSS">CSS</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="Computer Fundamentals">Computer Fundamentals</option>
+                  <option value="Web Technology">Web Technology</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Subject</th>
+                    <th>Question Statement</th>
+                    <th>Correct Answer</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-questions-tbody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Subview 4: Manage Students -->
+      <div id="admin-students-view" class="page-container view-section">
+        <div class="card">
+          <div class="card-header">
+            <h3>Registered Student Candidates</h3>
+            <div class="search-input-wrapper" style="max-width: 280px;">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="admin-student-search" class="form-control form-control-sm" placeholder="Search students..." oninput="renderAdminStudentsTable()" />
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Student Info</th>
+                  <th>ID Number</th>
+                  <th>Department</th>
+                  <th>Semester</th>
+                  <th>Exams Taken</th>
+                  <th>Avg Score</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-students-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Subview 5: All Results -->
+      <div id="admin-results-view" class="page-container view-section">
+        <div class="card">
+          <div class="card-header">
+            <h3>Master Examination Results Log</h3>
+            <button class="btn btn-sm btn-secondary" onclick="exportResultsToCSV()">
+              <i class="fa-solid fa-download"></i> Export CSV
+            </button>
+          </div>
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Student ID</th>
+                  <th>Exam Title</th>
+                  <th>Subject</th>
+                  <th>Marks</th>
+                  <th>Percentage</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="admin-results-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Subview 6: Reports -->
+      <div id="admin-reports-view" class="page-container view-section">
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+          <div class="card-header">
+            <h3>Institutional Performance Reports</h3>
+          </div>
+          <div class="card-body">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
+              <div class="breakdown-box">
+                <h5>Total Exam Submissions</h5>
+                <div class="val" id="report-total-attempts">0</div>
+              </div>
+              <div class="breakdown-box">
+                <h5>Total Passing Attempts</h5>
+                <div class="val" id="report-pass-count" style="color: var(--success);">0</div>
+              </div>
+              <div class="breakdown-box">
+                <h5>Total Failing Attempts</h5>
+                <div class="val" id="report-fail-count" style="color: var(--danger);">0</div>
+              </div>
+              <div class="breakdown-box">
+                <h5>Average Cohort Score</h5>
+                <div class="val" id="report-avg-score" style="color: var(--primary);">0%</div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="exportResultsToCSV()">
+              <i class="fa-solid fa-file-csv"></i> Download Official CSV Report
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Subview 7: Settings -->
+      <div id="admin-settings-view" class="page-container view-section">
+        <div class="card" style="max-width: 680px; margin: 0 auto;">
+          <div class="card-header">
+            <h3>System Management</h3>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border-color);">
+              <div>
+                <strong>Platform Appearance</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Toggle dark mode contrast</p>
+              </div>
+              <button class="btn btn-secondary theme-toggle-btn">
+                <i class="fa-solid fa-moon theme-toggle-icon"></i> Toggle Theme
+              </button>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0;">
+              <div>
+                <strong style="color: var(--danger);">Factory Reset Demo Environment</strong>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Re-seed default BSIT examinations, questions bank, and demo accounts</p>
+              </div>
+              <button class="btn btn-outline-danger btn-reset-demo-data">
+                <i class="fa-solid fa-arrows-rotate"></i> Reset All Data
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =====================================================================
+       MODULE 4: DEDICATED ONLINE EXAM INTERFACE (CRITICAL EXAM ENGINE)
+       ===================================================================== -->
+  <div id="exam-taking-view">
+    <!-- Top Examination Navbar -->
+    <header class="exam-navbar">
+      <div class="exam-brand">
+        <i class="fa-solid fa-graduation-cap" style="color: var(--primary); font-size: 1.5rem;"></i>
+        <div>
+          <div class="exam-brand-title" id="exam-active-title">HTML5 Fundamentals & Semantics</div>
+          <span class="badge badge-primary" id="exam-active-subject-badge" style="font-size: 0.7rem;">HTML</span>
+        </div>
+      </div>
+
+      <!-- Live Dynamic Countdown Timer -->
+      <div class="exam-timer-box" id="exam-timer-container">
+        <i class="fa-solid fa-stopwatch"></i>
+        <span id="exam-timer-display">10:00</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="text-align: right; display: none; @media(min-width:600px){display:block;}">
+          <div style="font-weight: 700; font-size: 0.9rem;" id="exam-active-student-name">Alex Rivera</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);" id="exam-active-student-id">BSIT-2024-108</div>
+        </div>
+        <button class="btn btn-danger btn-sm" id="btn-submit-exam-top">
+          <i class="fa-solid fa-paper-plane"></i> Submit Exam
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Exam Body Area -->
+    <div class="exam-layout">
+      <!-- Question Presentation Left/Center Area -->
+      <main class="exam-question-area">
+        <div>
+          <div class="question-header">
+            <span class="question-number-badge" id="current-q-index-badge">Question 1 of 10</span>
+            <span class="badge badge-secondary" id="current-q-marks-badge">2 Marks</span>
+          </div>
+
+          <h2 class="question-text" id="current-q-text">
+            Loading question prompt...
+          </h2>
+
+          <!-- Radio Options 4-Choice List -->
+          <div class="options-list" id="options-list-container">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Question Navigation Action Controls -->
+        <div class="exam-actions-bar">
+          <div class="exam-actions-left">
+            <button class="btn btn-secondary" id="btn-prev-question">
+              <i class="fa-solid fa-arrow-left"></i> Previous
+            </button>
+            <button class="btn btn-secondary" id="btn-clear-answer" title="Clear selected choice">
+              <i class="fa-solid fa-eraser"></i> Clear Choice
+            </button>
+          </div>
+
+          <div class="exam-actions-right">
+            <button class="btn btn-secondary" id="btn-mark-review">
+              <i class="fa-regular fa-flag"></i> Mark for Review
+            </button>
+            <button class="btn btn-primary" id="btn-next-question">
+              Next Question <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Right Side Question Navigation Palette -->
+      <aside class="exam-palette-sidebar" id="exam-palette-sidebar">
+        <div class="palette-grid-title">
+          <span>Question Palette</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Quick Jump</span>
+        </div>
+
+        <!-- Palette Status Legend -->
+        <div class="palette-legend">
+          <div class="legend-item">
+            <span class="legend-color-box current"></span>
+            <span>Current</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color-box answered"></span>
+            <span>Answered</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color-box review"></span>
+            <span>Review</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color-box unanswered"></span>
+            <span>Unanswered</span>
+          </div>
+        </div>
+
+        <!-- Question Buttons Matrix -->
+        <div class="question-palette-grid" id="question-palette-grid">
+          <!-- Rendered dynamically (buttons 1..N) -->
+        </div>
+
+        <!-- Real-Time Answer Summary Counts -->
+        <div class="palette-summary-card">
+          <div class="palette-summary-row">
+            <span>Answered Questions:</span>
+            <strong id="palette-count-answered" style="color: var(--success);">0</strong>
+          </div>
+          <div class="palette-summary-row">
+            <span>Unanswered Questions:</span>
+            <strong id="palette-count-unanswered" style="color: var(--text-secondary);">0</strong>
+          </div>
+          <div class="palette-summary-row">
+            <span>Marked for Review:</span>
+            <strong id="palette-count-review" style="color: var(--warning);">0</strong>
+          </div>
+        </div>
+
+        <button class="btn btn-danger" id="btn-submit-exam-palette" style="width: 100%; margin-top: 16px;">
+          <i class="fa-solid fa-check-double"></i> Submit Examination
+        </button>
+      </aside>
+    </div>
+  </div>
+
+
+  <!-- =====================================================================
+       MODULE 5: COMMON MODALS & DIALOGS
+       ===================================================================== -->
+
+  <!-- 1. Authentication: Login Modal -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>Sign In to OEMS</h3>
+        <button class="modal-close-btn" onclick="closeModal('login-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <!-- Quick Demo Credentials Box -->
+        <div style="background: var(--primary-light); padding: 12px; border-radius: var(--radius-md); margin-bottom: 18px; font-size: 0.85rem; border: 1px solid rgba(37,99,235,0.2);">
+          <strong><i class="fa-solid fa-key"></i> Quick Demo Logins:</strong>
+          <div style="display: flex; gap: 8px; margin-top: 8px;">
+            <button type="button" class="btn btn-sm btn-primary" id="btn-quick-admin-login">Admin Demo</button>
+            <button type="button" class="btn btn-sm btn-secondary" id="btn-quick-student-login">Student Demo</button>
+          </div>
+        </div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="user@oems.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-password-wrapper">
+              <input type="password" id="login-password" class="form-control" placeholder="••••••••" required />
+              <span class="input-password-toggle"><i class="fa-regular fa-eye"></i></span>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.88rem;">
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+              <input type="checkbox" id="login-remember" checked />
+              <span>Remember me</span>
+            </label>
+            <a href="#" onclick="showToast('Password reset demo link sent to registered email.', 'info'); return false;">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fa-solid fa-right-to-bracket"></i> Sign In
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer" style="justify-content: center; font-size: 0.9rem;">
+        <span>Don't have an account? <a href="#" onclick="closeModal('login-modal'); openModal('register-modal'); return false;">Register Now</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Authentication: Register Modal -->
+  <div class="modal-overlay" id="register-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>Create Student Account</h3>
+        <button class="modal-close-btn" onclick="closeModal('register-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="register-form">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="e.g. John Doe" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="john@university.edu" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Student ID Number</label>
+            <input type="text" id="reg-student-id" class="form-control" placeholder="e.g. BSIT-2024-042" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-group">
+              <label class="form-label">Department</label>
+              <select id="reg-dept" class="form-control">
+                <option value="Information Technology">Information Technology</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Software Engineering">Software Engineering</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Semester</label>
+              <select id="reg-semester" class="form-control">
+                <option value="Semester 1">Semester 1</option>
+                <option value="Semester 3">Semester 3</option>
+                <option value="Semester 5" selected>Semester 5</option>
+                <option value="Semester 7">Semester 7</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Create Password</label>
+            <div class="input-password-wrapper">
+              <input type="password" id="reg-pass" class="form-control" placeholder="At least 6 characters" required />
+              <span class="input-password-toggle"><i class="fa-regular fa-eye"></i></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Confirm Password</label>
+            <div class="input-password-wrapper">
+              <input type="password" id="reg-confirm-pass" class="form-control" placeholder="Re-enter password" required />
+              <span class="input-password-toggle"><i class="fa-regular fa-eye"></i></span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
+            <i class="fa-solid fa-user-check"></i> Complete Registration
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer" style="justify-content: center; font-size: 0.9rem;">
+        <span>Already registered? <a href="#" onclick="closeModal('register-modal'); openModal('login-modal'); return false;">Log In</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Exam Instructions Modal Before Starting -->
+  <div class="modal-overlay" id="exam-instructions-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modal-exam-title">Examination Rules & Instructions</h3>
+        <button class="modal-close-btn" onclick="closeModal('exam-instructions-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div style="background: var(--bg-muted); padding: 14px; border-radius: var(--radius-md); margin-bottom: 18px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.88rem;">
+            <div><strong>Subject:</strong> <span id="modal-exam-subject">HTML</span></div>
+            <div><strong>Duration:</strong> <span id="modal-exam-duration">10 Minutes</span></div>
+            <div><strong>Questions:</strong> <span id="modal-exam-questions">10 Questions</span></div>
+            <div><strong>Total Marks:</strong> <span id="modal-exam-total-marks">20 Marks</span></div>
+            <div><strong>Passing Criteria:</strong> <span id="modal-exam-passing">50%</span></div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Candidate Rules & Protocols:</h4>
+        <ul style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; padding-left: 20px; list-style-type: disc; margin-bottom: 16px;">
+          <li>Once you click <strong>"Begin Examination"</strong>, the countdown timer starts immediately.</li>
+          <li>Each question carries 2 marks with no negative marking.</li>
+          <li>You may mark questions for review and navigate via the right palette.</li>
+          <li>Accidental window closing is protected; tab-switching is monitored.</li>
+          <li>Answers are automatically preserved and scored immediately upon submission.</li>
+        </ul>
+
+        <div style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;" id="modal-exam-instructions">
+          Answer all questions carefully.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('exam-instructions-modal')">Cancel</button>
+        <button class="btn btn-primary" id="btn-modal-start-exam">
+          <i class="fa-solid fa-play"></i> Begin Examination
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Result Showcase Modal -->
+  <div class="modal-overlay" id="exam-result-modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h3>Examination Evaluation Report</h3>
+      </div>
+      <div class="modal-body">
+        <div class="result-hero-card">
+          <div class="result-status-badge pass" id="result-status-badge">PASSED</div>
+          
+          <div class="score-circle-wrapper pass" id="result-score-circle">
+            <div class="score-percentage" id="result-score-percentage">85%</div>
+            <div class="score-label">Final Score</div>
+          </div>
+
+          <h3 id="result-exam-title" style="margin-bottom: 6px;">HTML5 Fundamentals & Semantics</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Evaluation completed by OEMS Automated Evaluation Engine</p>
+
+          <div class="result-stats-breakdown">
+            <div class="breakdown-box">
+              <h5>Marks Obtained</h5>
+              <div class="val" id="result-obtained-marks">12 / 14</div>
+            </div>
+            <div class="breakdown-box">
+              <h5>Correct</h5>
+              <div class="val" id="result-correct-count" style="color: var(--success);">6</div>
+            </div>
+            <div class="breakdown-box">
+              <h5>Incorrect</h5>
+              <div class="val" id="result-incorrect-count" style="color: var(--danger);">1</div>
+            </div>
+            <div class="breakdown-box">
+              <h5>Unanswered</h5>
+              <div class="val" id="result-unanswered-count">0</div>
+            </div>
+            <div class="breakdown-box">
+              <h5>Time Spent</h5>
+              <div class="val" id="result-time-taken">04m 45s</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <button class="btn btn-secondary" onclick="openAttemptReview(AppState.selectedAttemptForReview?.id)">
+              <i class="fa-solid fa-list-check"></i> Review All Answers & Explanations
+            </button>
+            <button class="btn btn-primary" id="btn-result-to-dashboard">
+              <i class="fa-solid fa-house"></i> Return to Student Dashboard
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Question Review Modal (Full Explanations) -->
+  <div class="modal-overlay" id="review-modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h3 id="review-modal-title">Examination Paper Review</h3>
+        <button class="modal-close-btn" onclick="closeModal('review-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="review-questions-container">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="closeModal('review-modal')">Close Review</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Admin Create/Edit Exam Modal -->
+  <div class="modal-overlay" id="admin-exam-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="exam-modal-title">Create New Examination</h3>
+        <button class="modal-close-btn" onclick="closeModal('admin-exam-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="exam-form">
+          <div class="form-group">
+            <label class="form-label">Exam ID / Code</label>
+            <input type="text" id="admin-exam-id-input" class="form-control" placeholder="e.g. EXAM-WT-501" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Examination Title</label>
+            <input type="text" id="admin-exam-title-input" class="form-control" placeholder="e.g. Advanced JavaScript & APIs" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-group">
+              <label class="form-label">Subject Category</label>
+              <select id="admin-exam-subject-input" class="form-control">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Computer Fundamentals">Computer Fundamentals</option>
+                <option value="Web Technology">Web Technology</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Status</label>
+              <select id="admin-exam-status-input" class="form-control">
+                <option value="Active">Active</option>
+                <option value="Upcoming">Upcoming</option>
+                <option value="Draft">Draft</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+            <div class="form-group">
+              <label class="form-label">Duration (Mins)</label>
+              <input type="number" id="admin-exam-duration-input" class="form-control" value="10" min="1" max="180" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Total Questions</label>
+              <input type="number" id="admin-exam-questions-input" class="form-control" value="7" min="1" max="50" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Pass Marks (%)</label>
+              <input type="number" id="admin-exam-pass-input" class="form-control" value="50" min="1" max="100" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Instructions for Candidates</label>
+            <textarea id="admin-exam-instructions-input" class="form-control" rows="3" placeholder="Enter rules, duration notices, and scoring guidelines..."></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+            <button type="button" class="btn btn-secondary" onclick="closeModal('admin-exam-modal')">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Exam</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Admin Create/Edit Question Modal -->
+  <div class="modal-overlay" id="admin-question-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="question-modal-title">Add Question to Bank</h3>
+        <button class="modal-close-btn" onclick="closeModal('admin-question-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="question-form">
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <select id="q-subject-input" class="form-control">
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="Computer Fundamentals">Computer Fundamentals</option>
+              <option value="Web Technology">Web Technology</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Question Text</label>
+            <textarea id="q-text-input" class="form-control" rows="2" placeholder="Enter clear question statement..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Option A</label>
+            <input type="text" id="q-opt0-input" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Option B</label>
+            <input type="text" id="q-opt1-input" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Option C</label>
+            <input type="text" id="q-opt2-input" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Option D</label>
+            <input type="text" id="q-opt3-input" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Select Correct Option</label>
+            <select id="q-correct-input" class="form-control">
+              <option value="0">Option A</option>
+              <option value="1">Option B</option>
+              <option value="2">Option C</option>
+              <option value="3">Option D</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Explanation</label>
+            <textarea id="q-explanation-input" class="form-control" rows="2" placeholder="Why is this answer correct?"></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+            <button type="button" class="btn btn-secondary" onclick="closeModal('admin-question-modal')">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Question</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Reusable Confirmation Modal -->
+  <div class="modal-overlay" id="confirm-modal">
+    <div class="modal-dialog" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 id="confirm-modal-title">Confirm Action</h3>
+        <button class="modal-close-btn" onclick="closeModal('confirm-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-modal-message" style="color: var(--text-secondary); font-size: 0.95rem;">Are you sure you want to proceed?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('confirm-modal')">Cancel</button>
+        <button class="btn btn-primary" id="confirm-modal-action-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Notifications Modal -->
+  <div class="modal-overlay" id="notifications-modal">
+    <div class="modal-dialog" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3><i class="fa-regular fa-bell" style="color: var(--primary); margin-right: 8px;"></i> System Notifications</h3>
+        <button class="modal-close-btn" onclick="closeModal('notifications-modal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="padding: 12px; background: var(--bg-muted); border-radius: var(--radius-md); border-left: 4px solid var(--primary);">
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem;">
+            <span>New Examination Available</span>
+            <small style="color: var(--text-muted);">2h ago</small>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Web Technology & Client-Server Architecture is now open for students.</p>
+        </div>
+
+        <div style="padding: 12px; background: var(--bg-muted); border-radius: var(--radius-md); border-left: 4px solid var(--success);">
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem;">
+            <span>Evaluation Published</span>
+            <small style="color: var(--text-muted);">1d ago</small>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">HTML5 Fundamentals examination graded. Grade A (85.7%) achieved.</p>
+        </div>
+
+        <div style="padding: 12px; background: var(--bg-muted); border-radius: var(--radius-md); border-left: 4px solid var(--warning);">
+          <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem;">
+            <span>Anti-Cheat Advisory</span>
+            <small style="color: var(--text-muted);">3d ago</small>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Keep full focus on active examination tabs to prevent violation logs.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('notifications-modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Mount Container -->
+  <div id="toast-container"></div>
+
+  <!-- Core JavaScript Script -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

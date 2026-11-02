@@ -1,2 +1,20 @@
-# online-examination-management-system
-Online Examination Management System is a modern, responsive examination platform developed using ASP.NET, C#.NET, MySQL, HTML, CSS, and JavaScript. It features student management, online exams, MCQs, automated results, exam scheduling, and an intuitive dashboard for efficient digital examination management.
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
+
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/5bf27215-4d5c-4501-ac35-b8a7fbaff543
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
